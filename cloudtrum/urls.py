@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/balance', BalanceList.as_view(), name='balance-list'),
+    url(r'^api/balances', BalanceList.as_view(), name='balance-list'),
 
 )
 

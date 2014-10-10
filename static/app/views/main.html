@@ -1,23 +1,39 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div ng-hide="balances" class="panel panel-default">
+  <div class="panel-body"> 
+    <h3>Insert Master Public Key</h3>
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}">{{alert.msg}}<a href="#"> (Where you can find it)</a></alert>
+    <textarea class="form-control" rows="3" ng-model="mpk"></textarea>
+    <button type="button" class="btn btn-default" ng-click="new_mpk(mpk)">Submit</button>
+  </div>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div ng-show="balances">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row"> 
+        <div class="col-lg-3">
+          <qrcode data="{{mpk}}" size="250" version="8"></qrcode>
+        </div>
+        <div class="col-lg-9">
+          <div class="well balance">
+            <h3>The balance of this electrum wallet is:</h3><span class="total-balance">{{total_balance | number:6}} BTC</span>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body"> 
+      <ul class="list-group">
+        <li ng-repeat="balance in balances | filter: greaterThan('balance', 0)" class="list-group-item">
+          <span class="badge">{{balance.balance}}</span>
+          <a class="address" ng-href="http://btc.blockr.io/address/info/{{balance.address}}">{{balance.address}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
+

@@ -2,6 +2,7 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -12,10 +13,11 @@ body {
   padding-right: 15px;
 }
 
-/* Custom page header */
+/* Custom page header 
 .header {
   border-bottom: 1px solid #e5e5e5;
 }
+*/
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
@@ -31,12 +33,32 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
+.address{
+  font-family: 'Droid Sans Mono', Arial;
+}
+
+.total-balance{
+  font-size: 85px;
+}
+
+
+.banner {
+  text-align: center;
+
+}
+
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 1230px;
+  }
+  .balance{
+    height: 250px;
+    margin: 0;
+    text-align: center;
   }
 }
+
 .container-narrow > hr {
   margin: 30px 0;
 }

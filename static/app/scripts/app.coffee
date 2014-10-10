@@ -16,7 +16,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'monospaced.qrcode',
+    'restangular',
+    'ui.bootstrap'
   ])
   .config ($routeProvider) ->
     $routeProvider
@@ -26,6 +29,18 @@ angular
       .when '/about',
         templateUrl: 'views/about.html'
         controller: 'AboutCtrl'
+      .when '/balance/:mpk',
+        templateUrl: 'views/balance.html'
+        controller: 'BalanceCtrl'
       .otherwise
         redirectTo: '/'
+
+  .config (RestangularProvider) ->
+    RestangularProvider.setBaseUrl 'http://localhost:8000/api/'
+
+  .factory 'Balances' , (Restangular) ->
+    Restangular.service 'balances';
+ 
+    
+
 
