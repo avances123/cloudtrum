@@ -87,4 +87,4 @@ STATIC_URL = '/static/'
 
 
 
-CORS_ORIGIN_WHITELIST = ('http://localhost:9000'    )
+CORS_ORIGIN_WHITELIST = ('http://localhost:9000' , 'http://cloudtrum.fabio.rueda.guru' )
