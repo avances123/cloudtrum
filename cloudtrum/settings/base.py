@@ -13,6 +13,11 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
+ADMINS = (
+    ('Fabio Rueda', 'avances123@gmail.com'),
+)
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -37,10 +42,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
 )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -82,3 +89,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+#CORS_ORIGIN_WHITELIST = ['http://localhost:90' , 'cloudtrum.fabio.rueda.guru' ]
+CORS_ORIGIN_REGEX_WHITELIST = ('^(https?://)?localhost:9000$','^(https?://)?cloudtrum.fabio.rueda.guru$' )
+CORS_ORIGIN_ALLOW_ALL = False

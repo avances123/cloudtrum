@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-body"> 
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Insert Master Public Key</label>
+      <alert ng-repeat="alert in alerts" type="{{alert.type}}">{{alert.msg}}<a href="#"> (Where you can find it)</a></alert>
+      <textarea class="form-control" rows="2" ng-model="mpk"></textarea>
+    </div>
+
+    <button type="button" class="btn btn-default" ng-click="new_mpk(mpk)">Submit</button>
+  </div>
+</div>
