@@ -44,6 +44,6 @@ class BalanceList(generics.ListAPIView):
     def calculate_cache_key(self, view_instance, view_method,
                             request, args, kwargs):
         print request.accepted_renderer.format
-        return request.GET.get("mpk","")+request.accepted_renderer.format
+        return request.GET.get("mpk","") + ':' + request.accepted_renderer.format
         
 

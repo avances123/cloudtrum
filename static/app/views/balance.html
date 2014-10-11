@@ -1,14 +1,3 @@
-<div ng-hide="balances" class="panel panel-default">
-  <div class="panel-body"> 
-    <h3>Insert Master Public Key</h3>
-    <alert ng-repeat="alert in alerts" type="{{alert.type}}">{{alert.msg}}<a href="#"> (Where you can find it)</a></alert>
-    <textarea class="form-control" rows="3" ng-model="mpk"></textarea>
-    <button type="button" class="btn btn-default" ng-click="new_mpk(mpk)">Submit</button>
-  </div>
-</div>
-
-
-
 <div ng-show="balances">
   <div class="panel panel-default">
     <div class="panel-body">

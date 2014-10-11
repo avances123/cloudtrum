@@ -1,0 +1,35 @@
+#!/bin/bash
+ 
+NAME="cloudtrum"                                  # Name of the application
+DJANGODIR=/home/ubuntu/src/cloudtrum             # Django project directory
+SOCKFILE=/run/shm/gunicorn.sock  # we will communicte using this unix socket
+USER=ubuntu                                       # the user to run as
+GROUP=ubuntu                                      # the group to run as
+NUM_WORKERS=3                                     # how many worker processes should Gunicorn spawn
+DJANGO_SETTINGS_MODULE=cloudtrum.settings.production  # which settings file should Django use
+DJANGO_WSGI_MODULE=cloudtrum.wsgi                     # WSGI module name
+ 
+echo "Starting $NAME"
+ 
+# Activate the virtual environment
+cd $DJANGODIR
+source /home/ubuntu/.virtualenvs/cloudtrum/bin/activate
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+
+# Encriptar
+export AWS_ACCESS_KEY_ID="AKIAJGUN2PRW2M4A2BSA"
+export AWS_SECRET_ACCESS_KEY="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"
+export RAVEN_DSN="https://3331305e50f947f7af506b9c94c0f180:909640456b054644b954c46e6a758afc@app.getsentry.com/14047"
+ 
+# Create the run directory if it doesn't exist
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+ 
+# Start your Django Unicorn
+# Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
+exec /home/ubuntu/.virtualenvs/cloudtrum/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+  --name $NAME \
+  --workers $NUM_WORKERS \
+  --user=$USER --group=$GROUP \
+  --bind=unix:$SOCKFILE 
