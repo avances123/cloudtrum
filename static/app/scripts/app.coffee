@@ -39,7 +39,8 @@ angular
         redirectTo: '/'
 
   .config (RestangularProvider) ->
-    RestangularProvider.setBaseUrl 'http://api.cloudtrum.fabio.rueda.guru/'
+    # RestangularProvider.setBaseUrl 'http://api.cloudtrum.fabio.rueda.guru/api/'
+    RestangularProvider.setBaseUrl 'http://localhost:8000/api/'
 
   .factory 'Balances' , (Restangular) ->
     Restangular.service 'balances'
