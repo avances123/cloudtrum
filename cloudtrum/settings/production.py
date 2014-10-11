@@ -19,8 +19,8 @@ STATICFILES_DIRS = (
     "/home/ubuntu/src/cloudtrum/static/dist/",
 )
 STATIC_URL = "https://cloudtrum.fabio.rueda.guru.s3.amazonaws.com/" 
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-
+#STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = 'storages.backends.s3.S3Storage'
 
 
 # Set up Amazon S3
