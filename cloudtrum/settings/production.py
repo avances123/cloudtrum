@@ -8,6 +8,7 @@ TEMPLATE_DEBUG = DEBUG
 
 INSTALLED_APPS += (
     'storages',
+    'raven.contrib.django.raven_compat',
 )
 
 
@@ -33,6 +34,11 @@ STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", '')
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", '')
 AWS_STORAGE_BUCKET_NAME = "cloudtrum.fabio.rueda.guru"
+
+
+RAVEN_CONFIG = {
+    'dsn' : os.environ.get("RAVEN_DSN", ''),
+}
 
 
 
