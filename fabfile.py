@@ -100,7 +100,7 @@ def django(branch="master"):
             require.python.requirements('devops/requirements.txt')
 
             with shell_env(DJANGO_SETTINGS_MODULE='cloudtrum.settings.production',AWS_ACCESS_KEY_ID="AKIAJGUN2PRW2M4A2BSA",AWS_SECRET_ACCESS_KEY="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"):
-                run('python manage.py syncdb --migrate --noinput')
+                run('python manage.py migrate --noinput')
 
     # Renicio los servicios
     fabtools.supervisor.restart_process('cloudtrum')
