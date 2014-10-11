@@ -15,7 +15,7 @@ def copyf(data):
 
 class BalanceList(generics.ListAPIView):
     
-    @cache_response(60 * 10)
+    @cache_response(60 * 10,key_func='calculate_cache_key')
     def get(self, request, *args, **kwargs):
 
         mpk = request.GET.get('mpk') 
@@ -40,4 +40,10 @@ class BalanceList(generics.ListAPIView):
         return Response(copyf(balances))
 
 
+
+    def calculate_cache_key(self, view_instance, view_method,
+                            request, args, kwargs):
+        print request.accepted_renderer.format
+        return request.GET.get("mpk","")+request.accepted_renderer.format
+        
 
