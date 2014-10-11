@@ -20,7 +20,6 @@ export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 # Encriptar
 export AWS_ACCESS_KEY_ID="AKIAJGUN2PRW2M4A2BSA"
 export AWS_SECRET_ACCESS_KEY="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"
-export RAVEN_DSN="https://3331305e50f947f7af506b9c94c0f180:909640456b054644b954c46e6a758afc@app.getsentry.com/14047"
  
 # Create the run directory if it doesn't exist
 RUNDIR=$(dirname $SOCKFILE)
