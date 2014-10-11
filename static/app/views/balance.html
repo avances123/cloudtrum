@@ -18,7 +18,7 @@
     <div class="panel-body"> 
       <ul class="list-group">
         <li ng-repeat="balance in balances | filter: greaterThan('balance', 0)" class="list-group-item">
-          <span class="badge">{{balance.balance}}</span>
+          <span class="badge">{{balance.balance | number:6}} BTC</span>
           <a class="address" ng-href="http://btc.blockr.io/address/info/{{balance.address}}">{{balance.address}}</a>
         </li>
       </ul>
