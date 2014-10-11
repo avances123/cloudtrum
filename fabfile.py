@@ -70,6 +70,7 @@ def postgresql(version="9.3"):
 def nginx():
     require.nginx.server()
     require.files.directory('/var/log/cloudtrum/nginx',use_sudo=True)
+    sudo("rm -rf /etc/nginx/sites-enabled/default")
     put(local_path='devops/nginx-cloudtrum.conf',remote_path='/etc/nginx/sites-available/cloudtrum',use_sudo=True)
     require.nginx.enabled(env.project)
 
@@ -98,9 +99,12 @@ def django(branch="master"):
     with cd(env.project_path):
         with fabtools.python.virtualenv(env.virtualenv_path):
             require.python.requirements('devops/requirements.txt')
+            run("pip install git+https://github.com/stormpat/blockr-python.git")
 
             with shell_env(DJANGO_SETTINGS_MODULE='cloudtrum.settings.production',AWS_ACCESS_KEY_ID="AKIAJGUN2PRW2M4A2BSA",AWS_SECRET_ACCESS_KEY="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"):
                 run('python manage.py migrate --noinput')
+                run('python manage.py collectstatic --noinput')
+
 
     # Renicio los servicios
     fabtools.supervisor.restart_process('cloudtrum')
