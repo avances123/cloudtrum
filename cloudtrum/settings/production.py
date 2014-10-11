@@ -18,7 +18,7 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     "/home/ubuntu/src/cloudtrum/static/dist/",
 )
-STATIC_URL = "https://cloudtrum.fabio.rueda.guru.s3.amazonaws.com/static/" 
+STATIC_URL = "https://cloudtrum.fabio.rueda.guru.s3.amazonaws.com/" 
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 
