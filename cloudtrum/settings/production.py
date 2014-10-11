@@ -25,17 +25,16 @@ STATICFILES_DIRS = (
     "/home/ubuntu/src/cloudtrum/static/dist/",
 )
 STATIC_URL = "https://cloudtrum.fabio.rueda.guru.s3.amazonaws.com/" 
-#STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-STATICFILES_STORAGE = 'storages.backends.s3.S3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#STATICFILES_STORAGE = 'storages.backends.s3.S3Storage'
 
 
 # Set up Amazon S3
-DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
-AWS_S3_FILE_OVERWRITE = False
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
+AWS_S3_FILE_OVERWRITE = True
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", '')
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", '')
 AWS_STORAGE_BUCKET_NAME = "cloudtrum.fabio.rueda.guru"
-THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE
 AWS_QUERYSTRING_AUTH = False
 AWS_PRELOAD_METADATA = True
 
