@@ -1,8 +1,10 @@
 Django==1.7
 Fabric==1.10.0
 argparse==1.2.1
+boto==2.33.0
 django-cors-headers==0.13
 django-redis==3.7.1
+django-storages==1.1.8
 djangorestframework==2.4.3
 drf-extensions==0.2.6
 ecdsa==0.11
