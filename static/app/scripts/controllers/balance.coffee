@@ -8,17 +8,10 @@
  # Controller of the staticApp
 ###
 angular.module('staticApp')
-  .controller 'BalanceCtrl', ($scope,$log,$routeParams) ->
+  .controller 'BalanceCtrl', ($scope,$log,$routeParams,balances) ->
     $scope.alerts = []
-    $scope.mpk = "3d3d5201021c586109549f5868ca441c65ea73800814186124020ff5043b35a75ecdb5ba4a3797f76a93f429aed1402ba40564c6045f5f41c719247236663697"
-    $scope.new_mpk = (mpk) ->
-        balances = Restangular.all 'balances'
-        balances.getList({mpk: mpk}).then (bals) -> 
-            $scope.balances = bals
-        , (error) ->
-            $scope.alerts.push 
-                msg:error.data.msg
-                type:"danger"
+    $scope.mpk = $routeParams.mpk
+    $scope.balances = balances
 
 
     $scope.$watchCollection 'balances', (newNames, oldNames) ->

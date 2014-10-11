@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from pybitcointools import *
 from blockr.api import Api
 from rest_framework import status
-
+from rest_framework_extensions.cache.decorators import (cache_response)
 
 
 coin = Api('Bitcoin')
@@ -15,6 +15,7 @@ def copyf(data):
 
 class BalanceList(generics.ListAPIView):
     
+    @cache_response(60 * 10)
     def get(self, request, *args, **kwargs):
 
         mpk = request.GET.get('mpk') 

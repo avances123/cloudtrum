@@ -32,6 +32,9 @@ angular
       .when '/balance/:mpk',
         templateUrl: 'views/balance.html'
         controller: 'BalanceCtrl'
+        resolve:
+          balances:($route,Balances)->
+            Balances.getList({mpk: $route.current.params.mpk})
       .otherwise
         redirectTo: '/'
 
@@ -39,8 +42,9 @@ angular
     RestangularProvider.setBaseUrl 'http://localhost:8000/api/'
 
   .factory 'Balances' , (Restangular) ->
-    Restangular.service 'balances';
- 
+    Restangular.service 'balances'
+
+
     
 
 

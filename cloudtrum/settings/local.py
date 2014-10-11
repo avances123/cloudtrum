@@ -5,13 +5,13 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 
-# Database
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
-
-DATABASES = {
+CACHES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'cloudtrum',                      
-        'HOST': ''
+        'BACKEND': 'redis_cache.cache.RedisCache',
+        'LOCATION': '127.0.0.1:6379:0',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'redis_cache.client.DefaultClient',
+            #'PASSWORD': 'secretpassword',  # Optional
+        }
     }
 }
