@@ -1,28 +1,26 @@
-<div>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="row"> 
-        <div class="col-lg-3">
-          <qrcode data="{{mpk}}" size="250" version="8"></qrcode>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row"> 
+      <div class="col-lg-3">
+        <qrcode data="{{mpk}}" size="250" version="8"></qrcode>
+      </div>
+      <div class="col-lg-9">
+        <div class="well balance">
+          <h3>The balance of this electrum wallet is:</h3><span class="total-balance">{{total_balance | number:6}} BTC</span>
         </div>
-        <div class="col-lg-9">
-          <div class="well balance">
-            <h3>The balance of this electrum wallet is:</h3><span class="total-balance">{{total_balance | number:6}} BTC</span>
-          </div>
-        </div>
-      </div>  
-    </div>
+      </div>
+    </div>  
   </div>
+</div>
 
-  <div class="panel panel-default">
-    <div class="panel-body"> 
-      <ul class="list-group">
-        <li ng-repeat="balance in balances | filter: greaterThan('balance', 0)" class="list-group-item">
-          <span class="badge">{{balance.balance | number:6}} BTC</span>
-          <a class="address" ng-href="http://btc.blockr.io/address/info/{{balance.address}}">{{balance.address}}</a>
-        </li>
-      </ul>
-    </div>
+<div ng-show="balances" class="panel panel-default">
+  <div class="panel-body"> 
+    <ul class="list-group">
+      <li ng-repeat="balance in balances | filter: greaterThan('balance', 0)" class="list-group-item">
+        <span class="badge">{{balance.balance | number:6}} BTC</span>
+        <a class="address" ng-href="http://btc.blockr.io/address/info/{{balance.address}}">{{balance.address}}</a>
+      </li>
+    </ul>
   </div>
 </div>
 
