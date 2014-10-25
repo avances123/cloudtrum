@@ -33,7 +33,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 #DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", '')
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", '')
-AWS_STORAGE_BUCKET_NAME = "cloudtrum.fabio.rueda.guru"
+AWS_STORAGE_BUCKET_NAME = "www.cloudtrum.xyz"
 
 
 RAVEN_CONFIG = {
@@ -47,8 +47,8 @@ RAVEN_CONFIG = {
 CACHES = {
     'default': {
         'BACKEND': 'redis_cache.cache.RedisCache',
-        #'LOCATION': '127.0.0.1:6379:0',
-        'LOCATION': 'cloudtrum.scwvxh.0001.euw1.cache.amazonaws.com:6379:0',
+        'LOCATION': '127.0.0.1:6379:0',
+        #'LOCATION': 'cloudtrum.scwvxh.0001.euw1.cache.amazonaws.com:6379:0',
         'OPTIONS': {
             'CLIENT_CLASS': 'redis_cache.client.DefaultClient',
             #'PASSWORD': 'secretpassword',  # Optional

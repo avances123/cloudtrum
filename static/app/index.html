@@ -21,6 +21,14 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+
+    <map name="ribbon">
+        <area shape="poly" coords="0,0,150,150,150,0" href="http://blog.fabio.rueda.guru">
+    </map>
+    <img src="images/ribbon.png" usemap="#ribbon" alt="BETA"
+         style="position:absolute;top:0;right:0;border:none;">
+
+
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
@@ -29,7 +37,7 @@
           <li><a ng-href="#/about">About</a></li>
         </ul>
         <div class="page-header">
-          <h2>CLOUDTRUM <small>read-only HD Bitcoin wallets</small></h2>
+          <h2><a ng-href="/" style="text-decoration:none">CLOUDTRUM </a><small>read-only HD Bitcoin wallets</small></h2>
         </div>
         
       </div>
@@ -87,7 +95,6 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/qrcode-generator/js/qrcode.js"></script>
     <script src="bower_components/angular-qrcode/qrcode.js"></script>
-    <script src="bower_components/angular-socialshare/angular-socialshare.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

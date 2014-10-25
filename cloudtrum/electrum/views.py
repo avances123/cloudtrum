@@ -37,7 +37,8 @@ class BalanceList(generics.ListAPIView):
         except Exception, e:
             return Response({'msg':str(e)},status=status.HTTP_400_BAD_REQUEST)
 
-        return Response(copyf(balances))
+        used_balances = copyf(balances)
+        return Response(used_balances)
 
 
 

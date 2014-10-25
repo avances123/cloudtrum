@@ -20,7 +20,6 @@ angular
     'monospaced.qrcode',
     'restangular',
     'ui.bootstrap',
-    'djds4rce.angular-socialshare'
   ])
   .config ($routeProvider) ->
     $routeProvider
@@ -40,7 +39,7 @@ angular
         redirectTo: '/'
 
   .config (RestangularProvider) ->
-    RestangularProvider.setBaseUrl 'http://api.cloudtrum.fabio.rueda.guru/api/'
+    RestangularProvider.setBaseUrl 'http://api.cloudtrum.xyz/api/'
     #RestangularProvider.setBaseUrl 'http://localhost:8000/api/'
 
   .factory 'Balances' , (Restangular) ->
