@@ -5,7 +5,7 @@ from fabtools import require
 import fabtools
 
 
-env.hosts           = ['www.cloudtrum.xyz']
+env.hosts           = ['54.72.230.45']
 env.user            = 'ubuntu'
 env.project         = 'cloudtrum'
 env.repo_url        = 'git@github.com:avances123/cloudtrum.git'
