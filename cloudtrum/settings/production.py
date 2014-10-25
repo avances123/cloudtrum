@@ -33,7 +33,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 #DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", '')
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", '')
-AWS_STORAGE_BUCKET_NAME = "cloudtrum.fabio.rueda.guru"
+AWS_STORAGE_BUCKET_NAME = "www.cloudtrum.xyz"
 
 
 RAVEN_CONFIG = {
